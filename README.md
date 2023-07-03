@@ -10,6 +10,7 @@ See my implementation at [https://tyrel.dev/links/](https://tyrel.dev/links/).
 ## Acknowledgements
 
  - 100% inspired by [Ho0ber's Links](https://github.com/ho0ber/links) while helping him make it in Python.
+
 ## Installation
 
 Install my-project with cargo

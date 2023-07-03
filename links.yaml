@@ -1,7 +1,7 @@
 config:
   title: links
   name: Tyrel
-  description: Software engineer, gamer, tech-enthusiast, ham, pilot, father
+  description: Software Engineer, gamer, tech-enthusiast, ham, pilot, father
   avatar: loupe.jpg
   background: moroccan-flower-dark.png
   background_opacity: 0.7
