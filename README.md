@@ -2,6 +2,10 @@
 
 Create a LinkTree page for free from a yaml template.
 
+## DEMO
+
+See my implementation at [https://tyrel.dev/links/](https://tyrel.dev/links/).
+
 
 ## Acknowledgements
 
@@ -49,6 +53,7 @@ Optionally install to get `rustylinks` on path.
 ## Roadmap
 
 - Add command line options for directories
+- Don't hardcode `links.yaml`
 - Add tests
 - Add Github Action support
 - Add SSH copying support
