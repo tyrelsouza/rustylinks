@@ -60,6 +60,7 @@ fn write_file(html: String) {
         copy_recursively("./static", "./output").expect("Could not copy static directory");
     }
     fs::write("./output/index.html", html).expect("Could not write to index.html");
+    println!("Yaml parsed, Template rendered, and all living in ./output/")
 }
 
 fn main() {
