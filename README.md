@@ -2,7 +2,7 @@
 
 Create a LinkTree page for free from a yaml template.
 
-## DEMO
+## Demo
 
 See my implementation at [https://tyrel.dev/links/](https://tyrel.dev/links/).
 
@@ -10,6 +10,8 @@ See my implementation at [https://tyrel.dev/links/](https://tyrel.dev/links/).
 ## Acknowledgements
 
  - 100% inspired by [Ho0ber's Links](https://github.com/ho0ber/links) while helping him make it in Python.
+ - My "moroccan-flower-dark.png" file is from [SubtlePatterns](https://www.toptal.com/designers/subtlepatterns/moroccan-flower-dark-pattern/)
+
 
 ## Installation
 
