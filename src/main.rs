@@ -1,53 +1,15 @@
-use std::fs;
-use std::io;
+use std::{fs,io};
 use std::path::Path;
 
 use chrono::{DateTime, Utc};
-use serde::{Serialize, Deserialize};
 use serde_yaml::{self};
 use tera::{Tera,Context};
 
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct RustyLinks {
-    config: Config,
-    links: Vec<Links>,
-    metadata: Option<MetaData>,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct MetaData {
-    last_updated: String,
-}
-
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Config {
-    title: String,
-    name: String,
-    description: String,
-    avatar: String,
-    background: String,
-    background_opacity: f64,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Links {
-    title: String,
-    links: Vec<Link>,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Link {
-    text: String,
-    icon: String,
-    href: Option<String>,
-    copy: Option<String>,
-}
-
+mod links;
+use links::{RustyLinks,MetaData};
 
 pub fn copy_recursively(source: impl AsRef<Path>, destination: impl AsRef<Path>) -> io::Result<()> {
-    // https://nick.groenen.me/notes/recursively-copy-files-in-rust/
+    // Credit: https://nick.groenen.me/notes/recursively-copy-files-in-rust/
     fs::create_dir_all(&destination)?;
     for entry in fs::read_dir(source)? {
         let entry = entry?;
@@ -64,7 +26,10 @@ pub fn copy_recursively(source: impl AsRef<Path>, destination: impl AsRef<Path>)
 
 fn load_links(file_name: &str) -> RustyLinks {
     let links_yaml = std::fs::File::open(file_name).expect("Could not find file");
+
     let mut rusty_links: RustyLinks = serde_yaml::from_reader(links_yaml).expect("Could not read values");
+     
+    // Set last updated time to now.
     let now : DateTime<Utc> = Utc::now();
     let metadata : MetaData = MetaData { last_updated: now.to_rfc2822()};
     rusty_links.metadata = Some(metadata);
@@ -73,7 +38,6 @@ fn load_links(file_name: &str) -> RustyLinks {
 }
 
 fn render_links(rusty_links: RustyLinks) -> String {
-    let context: Context = Context::from_serialize(&rusty_links).expect("Could not parse");
     let tera = match Tera::new("templates/*.tera") {
       Ok(t) => t,
       Err(e) => {
@@ -81,11 +45,15 @@ fn render_links(rusty_links: RustyLinks) -> String {
           ::std::process::exit(1);
       }
     };
+
+    let context: Context = Context::from_serialize(&rusty_links).expect("Could not parse");
     tera.render("main.tera", &context).expect("Could not parse")
 }
 
 fn write_file(html: String ) {
-    fs::remove_dir_all("./output").expect("could not remove directory");
+    if Path::new("./output").exists() {
+      fs::remove_dir_all("./output").expect("could not remove directory");
+    }
     fs::create_dir("./output").expect("Could not create output directory");
     copy_recursively("./static", "./output").expect("Could not copy static directory");
     fs::write("./output/index.html", html).expect("Could not write to index.html");

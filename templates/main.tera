@@ -40,24 +40,24 @@
     </div>
     <div class="links">
       {% for link in section.links %}
-      {% if 'href' in link and 'copy' in link %}
+      {% if link.href and link.copy %}
           <a class="link" href="{{link.href}}" target="_blank">
             <i class="{{link.icon}}"></i> {{link.text}}
             <div class="tooltip">
-              <span class="" href="#" onclick="copytext('{{link.copy}}','link._id')" onmouseout="outFunc('link._id')">
-                <span class="tooltiptext" id="link._id">Copy to clipboard</span>
+              <span class="" href="#" onclick="copytext('{{link.copy}}','{{loop.index}}')" onmouseout="outFunc('{{loop.index}}')">
+                <span class="tooltiptext" id="{{loop.index}}">Copy to clipboard</span>
                 <i class="fa-solid fa-copy"></i>
               </span>
             </div>
           </a>
-      {% elif 'href' in link %}
+      {% elif link.href %}
         <a class="link" href="{{link.href}}" target="_blank">
           <i class="{{link.icon}}"></i> {{link.text}}
         </a>
-      {% elif 'copy' in link %}
+      {% elif link.copy %}
         <div class="tooltip block">
-        <a class="link" href="#" onclick="copytext('{{link.copy}}','link._id')" onmouseout="outFunc('link._id')">
-          <span class="tooltiptext" id="link._id">Copy to clipboard</span>
+        <a class="link" href="#" onclick="copytext('{{link.copy}}','{{loop.index}}')" onmouseout="outFunc('{{loop.index}}')">
+          <span class="tooltiptext" id="{{loop.index}}">Copy to clipboard</span>
           <i class="{{link.icon}}"></i> {{link.text}}
         </a>
         </div>
@@ -74,7 +74,7 @@
 
 </body>
 <script>
-  /*
+  
   function copytext(val, linkid) {
     event.preventDefault();
     console.log(val);
@@ -87,6 +87,6 @@
     var tooltip = document.getElementById(linkid);
     tooltip.innerHTML = "Copy to clipboard";
   }
-  */
+  
 </script>
 </html>
