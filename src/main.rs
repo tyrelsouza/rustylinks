@@ -50,12 +50,15 @@ fn render_links(rusty_links: RustyLinks) -> String {
     tera.render("main.tera", &context).expect("Could not parse")
 }
 
-fn write_file(html: String ) {
+fn write_file(html: String) {
     if Path::new("./output").exists() {
       fs::remove_dir_all("./output").expect("could not remove directory");
     }
     fs::create_dir("./output").expect("Could not create output directory");
-    copy_recursively("./static", "./output").expect("Could not copy static directory");
+    // copy all files in static to output
+    if Path::new("./output").exists() {
+        copy_recursively("./static", "./output").expect("Could not copy static directory");
+    }
     fs::write("./output/index.html", html).expect("Could not write to index.html");
 }
 
