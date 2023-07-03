@@ -1,0 +1,110 @@
+config:
+  title: links
+  name: Tyrel
+  description: Software engineer, gamer, tech-enthusiast, ham, pilot, father
+  avatar: loupe.jpg
+  background: moroccan-flower-dark.png
+  background_opacity: 0.7
+
+links:
+  - title: Personal
+    links:
+      - text: Pronouns and Pronounciation
+        icon: fa fa-person
+        href: https://name.pn/tyrel-souza
+    
+  - title: Sites
+    links:
+      - text: Blog
+        icon: fa-solid fa-blog
+        href: https://tyrel.dev/blog
+
+  - title: Code
+    links:
+      - text: Gitea
+        icon: fa fa-gitea
+        href: https://gitea.tyrel.dev
+
+  - title: Chat
+    links:
+      - text: Matrix
+        icon: fa fa-matrix-org
+        href: https://matrix.to/#/@tyrel:tyrel.dev
+      - text: Discord
+        icon: fa fa-discord
+        href: https://discordapp.com/users/73990019756339200
+        copy: "@tyrel"
+
+
+  - title: Music
+    links:
+      - text: LastFM
+        icon: fa fa-lastfm
+        href: https://last.fm/user/tacidsky
+      - text: Bandcamp
+        icon: fa fa-bandcamp
+        href: https://bandcamp.com/tyrelsouza
+
+  - title: Photography
+    links:
+      - text: Pixelfed
+        icon: fa fa-pixelfed
+        href: https://pixelfed.social/tyrel
+      - text: Flickr
+        icon: fa-brands fa-flickr
+        href: https://www.flickr.com/photos/tyrelsouza
+      - text: Instagram
+        icon: fa-brands fa-instagram
+        href: https://www.instagram.com/tyrelsouza/
+
+  - title: Gaming
+    links:
+      - text: Steam
+        icon: fa fa-steam-square
+        href: https://steamcommunity.com/id/tyrels
+      - text: Xbox Gamertag
+        icon: fa-brands fa-xbox
+        copy: tacidsky
+      - text: Switch Friendcode
+        icon: fa-solid fa-gamepad
+        copy: "SW-1711-7753-4091"
+
+
+  - title: Socials
+    links:
+      - text: Bluesky
+        icon: fa-solid fa-cloud
+        href: https://bsky.app/profile/tyrel.dev
+      - text: Fediverse
+        icon: fa fa-pleroma
+        href: https://social.tyrel.dev/tyrel
+      - text: Facebook
+        icon: fa-brands fa-facebook
+        href: https://www.facebook.com/tyrel.souza
+      - text: YouTube
+        icon: fa-brands fa-youtube
+        href: https://youtube.com/tacidsky
+      - text: Goodreads
+        icon: fa-brands fa-goodreads
+        href: https://www.goodreads.com/user/show/24381583-tyrel-souza
+      - text: LinkedIn
+        icon: fa-brands fa-linkedin
+        href: http://www.linkedin.com/in/tyrel-souza
+      - text: Pinterest
+        icon: fa fa-pinterest
+        href: https://www.pinterest.com/tyrelsouza/
+      - text: QRZ
+        icon: fa-solid fa-radio
+        href: https://www.qrz.com/db/k3tas
+      - text: Hackernews
+        icon: fa fa-hacker-news
+        href: https://news.ycombinator.com/user?id=tyrel
+      - text: Lobsters
+        icon: fa-solid fa-loster
+        href: https://lobste.rs/u/tyrel
+
+  - title: Misc
+    links:
+      - text: Fork this project!
+        icon: fa-solid fa-code-fork
+        href: https://github.com/tyrelsouza/lazylinks
