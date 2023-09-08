@@ -41,7 +41,7 @@
     <div class="links">
       {% for link in section.links %}
       {% if link.href and link.copy %}
-          <a class="link" href="{{link.href}}" target="_blank">
+          <a class="link"  {% if link.rels %}rel="{{link.rels}}"{% endif %} href="{{link.href}}" target="_blank">
             <i class="{{link.icon}}"></i> {{link.text}}
             <div class="tooltip">
               <span class="" href="#" onclick="copytext('{{link.copy}}','{{loop.index}}')" onmouseout="outFunc('{{loop.index}}')">
@@ -51,7 +51,7 @@
             </div>
           </a>
       {% elif link.href %}
-        <a class="link" href="{{link.href}}" target="_blank">
+      <a class="link" {% if link.rels %}rel="{{link.rels}}"{% endif %} href="{{link.href}}" target="_blank">
           <i class="{{link.icon}}"></i> {{link.text}}
         </a>
       {% elif link.copy %}

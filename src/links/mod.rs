@@ -34,4 +34,5 @@ pub struct Link {
     icon: String,
     href: Option<String>,
     copy: Option<String>,
+    rels: Option<String>,
 }

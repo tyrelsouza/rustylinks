@@ -59,6 +59,9 @@ links:
 
   - title: Gaming
     links:
+      - text: Board Game Geek
+        icon: fa-solid fa-dice
+        href: https://boardgamegeek.com/user/tyrelsouza
       - text: Steam
         icon: fa fa-steam-square
         href: https://steamcommunity.com/id/tyrels
@@ -75,9 +78,10 @@ links:
       - text: Bluesky
         icon: fa-solid fa-cloud
         href: https://bsky.app/profile/tyrel.dev
-      - text: Fediverse
-        icon: fa fa-pleroma
-        href: https://social.tyrel.dev/tyrel
+      - text: Mastodon
+        rels: me
+        icon: fa fa-mastodon
+        href: https://mastodon.social/@tyrel
       - text: Facebook
         icon: fa-brands fa-facebook
         href: https://www.facebook.com/tyrel.souza
