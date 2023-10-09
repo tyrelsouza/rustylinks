@@ -23,7 +23,7 @@ links:
     links:
       - text: Gitea
         icon: fa fa-gitea
-        href: https://gitea.tyrel.dev
+        href: https://gitea.tyrel.dev/tyrel
 
   - title: Chat
     links:
