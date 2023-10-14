@@ -3,7 +3,7 @@ use std::path::Path;
 
 use chrono::{DateTime, Utc};
 use serde_yaml::{self};
-use tera::{Tera,Context};
+use minijinja::{Environment};
 
 mod links;
 use links::{RustyLinks,MetaData};
@@ -38,16 +38,13 @@ fn load_links(file_name: &str) -> RustyLinks {
 }
 
 fn render_links(rusty_links: RustyLinks) -> String {
-    let tera = match Tera::new("templates/*.tera") {
-      Ok(t) => t,
-      Err(e) => {
-          println!("Parsing error(s): {}", e);
-          ::std::process::exit(1);
-      }
-    };
+    let main = std::fs::read_to_string("templates/main.html").expect("Could not find main.html");
 
-    let context: Context = Context::from_serialize(&rusty_links).expect("Could not parse");
-    tera.render("main.tera", &context).expect("Could not parse")
+
+    let mut env = Environment::new();
+    env.add_template("main", &*main).unwrap();
+    let tmpl = env.get_template("main").unwrap();
+    tmpl.render(rusty_links).unwrap()
 }
 
 fn write_file(html: String) {
